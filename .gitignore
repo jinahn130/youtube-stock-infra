@@ -1,0 +1,20 @@
+# Terraform state files
+*.tfstate
+*.tfstate.backup
+*.hcl
+
+# Terraform working directory
+.terraform/
+
+# Build scripts
+/build-scripts/
+
+# Environment-specific config
+/envs/
+
+# Lambda function source code
+/lambda/
+
+# PowerShell scripts and temp files
+*.ps1
+*.txt

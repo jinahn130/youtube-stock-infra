@@ -2,8 +2,9 @@ resource "aws_apigatewayv2_api" "http_api" {
   name          = "${var.env}-stock-api"
   protocol_type = "HTTP"
 
+  # <TODO: DISABLE localhost in PROD when I implement PROD>
   cors_configuration {
-    allow_origins = ["https://digestjutsu.com"]
+    allow_origins = ["https://digestjutsu.com",  "http://localhost:5173"]
     allow_methods = ["GET", "POST", "OPTIONS"]
     allow_headers = ["Content-Type", "Authorization", "X-Custom-Gateway-Secret"]
     expose_headers = ["Content-Type"]

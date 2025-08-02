@@ -27,3 +27,21 @@ variable "security_group_ids" {
   description = "List of security group IDs for the Fargate task"
   type        = list(string)
 }
+
+variable "youtube_api_keys" {
+  type        = list(string)
+  description = "Optional list of YouTube API keys"
+  default     = []
+}
+
+variable "webshare_username" {
+  type        = string
+  description = "Optional Webshare proxy username"
+  default     = ""
+}
+
+variable "webshare_password" {
+  type        = string
+  description = "Optional Webshare proxy password"
+  default     = ""
+}

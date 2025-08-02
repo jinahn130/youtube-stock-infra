@@ -94,13 +94,16 @@ module "youtubeStockResearch_task" {
   openai_api_key     = var.openai_api_key
   youtube_api_key    = var.youtube_api_key
   deepseek_api_key   = var.deepseek_api_key
+  youtube_api_keys   = var.youtube_api_keys
+  webshare_username  = var.webshare_username
+  webshare_password  = var.webshare_password
 }
 
 module "youtubeStockResearch_cron" {
   source                = "./modules/cron_fargate"
   env                   = var.env
   fargate_name          = "youtube-stock-ingestion"
-  schedule              = "cron(0 11 * * ? *)"  # Daily at 11:00 UTC
+  schedule              = "cron(0 12,18,2 * * ? *)"  # 7AM, 1PM, 9PM EST
   enable_cron           = "ENABLED"
   task_definition_arn   = module.youtubeStockResearch_task.task_definition_arn
   cluster_arn           = aws_ecs_cluster.main.arn

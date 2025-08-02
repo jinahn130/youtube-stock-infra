@@ -69,6 +69,18 @@ resource "aws_ecs_task_definition" "fargate_task" {
         {
           name  = "DEEPSEEK_API_KEY"
           value = var.deepseek_api_key
+        },
+        {
+          name  = "YOUTUBE_API_KEYS"
+          value = jsonencode(var.youtube_api_keys) # <- as JSON string
+        },
+        {
+          name  = "WEBSHARE_USERNAME"
+          value = var.webshare_username
+        },
+        {
+          name  = "WEBSHARE_PASSWORD"
+          value = var.webshare_password
         }
       ]
       logConfiguration = {

@@ -26,3 +26,8 @@ variable "region" {
 variable "openai_api_key" {}
 variable "youtube_api_key" {}
 variable "deepseek_api_key" {}
+variable "youtube_api_keys" {
+  type = list(string)
+}
+variable "webshare_username" {}
+variable "webshare_password" {}

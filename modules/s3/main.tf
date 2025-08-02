@@ -3,6 +3,13 @@ resource "aws_s3_bucket" "frontend" {
   force_destroy = true
 }
 
+resource "aws_s3_object" "ads_txt" {
+  bucket = var.bucket_name
+  key    = "ads.txt"
+  source = "${path.module}/ads.txt"
+  content_type = "text/plain"
+}
+
 #CloudFront SPA Fallback
 resource "aws_s3_bucket_website_configuration" "frontend" {
   bucket = aws_s3_bucket.frontend.id

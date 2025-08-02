@@ -5,7 +5,7 @@ variable "aws_region" {
 variable "env" {}
 variable "youtube_api_key" {}
 variable "openai_api_key" {}
-variable "deepseek_api_key" {}
+
 variable "domain_name" {}
 
 variable "youtubeStockResearch_image_uri" {
@@ -25,5 +25,20 @@ variable "subnet_ids" {
 
 variable "security_group_ids" {
   description = "List of security group IDs for the Fargate task"
+  type        = list(string)
+}
+
+variable "webshare_username" {
+  description = "Webshare proxy username"
+  type        = string
+}
+
+variable "webshare_password" {
+  description = "Webshare proxy password"
+  type        = string
+}
+
+variable "youtube_api_keys" {
+  description = "List of YouTube API keys for quota rotation"
   type        = list(string)
 }

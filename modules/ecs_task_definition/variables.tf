@@ -26,8 +26,21 @@ variable "region" {
 variable "openai_api_key" {}
 variable "youtube_api_key" {}
 variable "deepseek_api_key" {}
+
 variable "youtube_api_keys" {
-  type = list(string)
+  type        = list(string)
+  description = "Optional list of YouTube API keys"
+  default     = []
 }
-variable "webshare_username" {}
-variable "webshare_password" {}
+
+variable "webshare_username" {
+  type        = string
+  description = "Optional Webshare proxy username"
+  default     = ""
+}
+
+variable "webshare_password" {
+  type        = string
+  description = "Optional Webshare proxy password"
+  default     = ""
+}

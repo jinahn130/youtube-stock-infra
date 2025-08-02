@@ -5,7 +5,7 @@ variable "aws_region" {
 variable "env" {}
 variable "youtube_api_key" {}
 variable "openai_api_key" {}
-
+variable "deepseek_api_key" {}
 variable "domain_name" {}
 
 variable "youtubeStockResearch_image_uri" {
@@ -28,17 +28,20 @@ variable "security_group_ids" {
   type        = list(string)
 }
 
+variable "youtube_api_keys" {
+  type        = list(string)
+  description = "Optional list of YouTube API keys"
+  default     = []
+}
+
 variable "webshare_username" {
-  description = "Webshare proxy username"
   type        = string
+  description = "Optional Webshare proxy username"
+  default     = ""
 }
 
 variable "webshare_password" {
-  description = "Webshare proxy password"
   type        = string
-}
-
-variable "youtube_api_keys" {
-  description = "List of YouTube API keys for quota rotation"
-  type        = list(string)
+  description = "Optional Webshare proxy password"
+  default     = ""
 }
